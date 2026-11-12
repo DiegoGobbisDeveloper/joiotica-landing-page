@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JoiÓtica – Joalheria e Ótica</title>
+<!-- Texto que aparece embaixo do título quando a página surge no Google. -->
+<meta name="description" content="JoiÓtica em Ituiutaba-MG: óculos de grau e solar, lentes Essilor, Hoya e Haytek, relógios e joias em ouro 18k com fabricação própria.">
+<link rel="icon" type="image/png" href="assets/images/logo-joiotica-png.png">
+
+<!-- Fontes do Google. O preconnect adianta a conexão e a página carrega um pouco mais rápido. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Barra do topo: fica fixa enquanto a pessoa rola a página. -->
+<nav>
+  <div class="nav-logo">
+    <img src="assets/images/logo-joiotica-png.png" alt="JoiÓtica – Joalheria e Ótica">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#lentes">Nossas Lentes</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#diferenciais">Diferenciais</a></li>
+    <li><a href="https://wa.me/553432611188" class="nav-cta" target="_blank" rel="noopener noreferrer">Fale Conosco</a></li>
+  </ul>
+  <!-- Botão de três risquinhos, só aparece em telas menores que 900px. -->
+  <button class="nav-hamburger" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Menu que desliza da direita no celular. O overlay é o fundo escuro que fecha o menu ao ser tocado. -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" type="button" onclick="toggleMenu(false)" aria-label="Fechar menu">×</button>
+  <ul>
+    <li><a href="#lentes" onclick="toggleMenu(false)">Nossas Lentes</a></li>
+    <li><a href="#catalogo" onclick="toggleMenu(false)">Catálogo</a></li>
+    <li><a href="#diferenciais" onclick="toggleMenu(false)">Diferenciais</a></li>
+    <li><a href="https://wa.me/553432611188" class="mobile-cta" target="_blank" rel="noopener noreferrer" onclick="toggleMenu(false)">Fale Conosco</a></li>
+  </ul>
+</div>
+<div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu(false)"></div>
+
+<!-- Primeira tela: a logo gigante e bem apagada no fundo é só decoração, por isso o alt vazio. -->
+<section class="hero">
+  <img class="hero-bg-logo" src="assets/images/logo-joiotica.png" alt="">
+
+  <div class="hero-content">
+    <div class="hero-badge">Relojoaria & Ótica</div>
+    <h1>Valorize a sua <em>beleza</em>!</h1>
+
+    <p>Das armações mais exclusivas às joias mais requintadas – tudo em um só lugar. Marcas nacionais e internacionais, com fabricação própria de joias.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/553432611188" class="btn-outline" target="_blank" rel="noopener noreferrer">Fale Conosco</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Descubra</div>
+</section>
+
+<!-- Lentes: texto de um lado e as fábricas parceiras do outro.
+     Se a imagem de alguma marca não carregar, o onerror esconde a imagem quebrada e mostra o nome escrito. -->
+<section class="section" id="lentes">
+  <div class="lentes-layout">
+    <div class="lentes-texto">
+      <p class="section-tag">Óculos de Grau com Qualidade</p>
+      <h2 class="section-title">As melhores <em>lentes</em><br>do mercado</h2>
+      <p class="section-desc">Na JoiÓtica, trabalhamos exclusivamente com lentes de alta tecnologia e procedência certificada. Cada par é escolhido para garantir conforto visual, durabilidade e proteção real aos seus olhos.</p>
+    </div>
+    <div class="lentes-marcas">
+      <p class="marcas-label">Fábricas que trabalhamos</p>
+      <div class="marcas-grid">
+        <div class="marca-card">
+          <img src="assets/images/marcas/essilor.png" alt="Essilor" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="marca-nome-fallback">Essilor</div>
+        </div>
+        <div class="marca-card">
+          <img src="assets/images/marcas/hoya.png" alt="Hoya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="marca-nome-fallback">Hoya</div>
+        </div>
+        <div class="marca-card">
+          <img src="assets/images/marcas/haytek.png" alt="Haytek" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="marca-nome-fallback">Haytek</div>
+        </div>
+        <div class="marca-card">
+          <img src="assets/images/marcas/uber-lentes.png" alt="Uber Lentes" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="marca-nome-fallback">Uber Lentes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Catálogo: cada botão abre o painel com o mesmo nome (data-categoria="solar" abre #painel-solar).
+     Para adicionar uma categoria nova, basta criar o botão e o painel seguindo esse padrão. -->
+<section class="section" id="catalogo">
+  <div class="catalogo-header">
+    <p class="section-tag">Nosso Catálogo</p>
+    <h2 class="section-title">Escolha sua <em>categoria</em></h2>
+    <p class="section-desc">Clique em uma categoria para conhecer todas as marcas que trabalhamos.</p>
+  </div>
+
+  <div class="categorias-grid">
+    <button class="categoria-btn" type="button" data-categoria="solar" onclick="toggleCategoria('solar')" aria-expanded="false" aria-controls="painel-solar">
+      <span class="cat-name">Óculos Solar</span>
+      <span class="cat-count">9 marcas</span>
+    </button>
+    <button class="categoria-btn" type="button" data-categoria="grau" onclick="toggleCategoria('grau')" aria-expanded="false" aria-controls="painel-grau">
+      <span class="cat-name">Óculos de Grau</span>
+      <span class="cat-count">17 marcas</span>
+    </button>
+    <button class="categoria-btn" type="button" data-categoria="relogios" onclick="toggleCategoria('relogios')" aria-expanded="false" aria-controls="painel-relogios">
+      <span class="cat-name">Relógios</span>
+      <span class="cat-count">2 marcas</span>
+    </button>
+    <button class="categoria-btn" type="button" data-categoria="joias" onclick="toggleCategoria('joias')" aria-expanded="false" aria-controls="painel-joias">
+      <span class="cat-name">Joias</span>
+      <span class="cat-count">Ouro 18k</span>
+    </button>
+  </div>
+
+  <!-- Painéis de marcas. Começam escondidos; o JavaScript coloca a classe .open para mostrar.
+       Ao incluir ou tirar uma marca, lembre de atualizar o "X marcas" no botão lá em cima. -->
+  <div class="marcas-painel" id="painel-solar">
+    <div class="painel-header">
+      <div class="painel-titulo">Óculos Solar</div>
+      <button class="painel-close" type="button" onclick="fecharPainel('solar')" aria-label="Fechar Óculos Solar">×</button>
+    </div>
+    <div class="marcas-grid">
+      <div class="marca-card"><div class="marca-nome">Mormaii</div></div>
+      <div class="marca-card"><div class="marca-nome">Arnette</div></div>
+      <div class="marca-card"><div class="marca-nome">Ray-Ban</div></div>
+      <div class="marca-card"><div class="marca-nome">Lança Perfume</div></div>
+      <div class="marca-card"><div class="marca-nome">Carrera</div></div>
+      <div class="marca-card"><div class="marca-nome">Maria Valentina</div></div>
+      <div class="marca-card"><div class="marca-nome">Vogue</div></div>
+      <div class="marca-card"><div class="marca-nome">Morena Rosa</div></div>
+      <div class="marca-card"><div class="marca-nome">Reserva</div></div>
+    </div>
+  </div>
+
+  <div class="marcas-painel" id="painel-grau">
+    <div class="painel-header">
+      <div class="painel-titulo">Óculos de Grau</div>
+      <button class="painel-close" type="button" onclick="fecharPainel('grau')" aria-label="Fechar Óculos de Grau">×</button>
+    </div>
+    <div class="marcas-grid">
+      <div class="marca-card"><div class="marca-nome">Mormaii</div></div>
+      <div class="marca-card"><div class="marca-nome">Arnette</div></div>
+      <div class="marca-card"><div class="marca-nome">Ray-Ban</div></div>
+      <div class="marca-card"><div class="marca-nome">Lança Perfume</div></div>
+      <div class="marca-card"><div class="marca-nome">Carrera</div></div>
+      <div class="marca-card"><div class="marca-nome">Maria Valentina</div></div>
+      <div class="marca-card"><div class="marca-nome">Vogue</div></div>
+      <div class="marca-card"><div class="marca-nome">Marchon</div></div>
+      <div class="marca-card"><div class="marca-nome">Grazi</div></div>
+      <div class="marca-card"><div class="marca-nome">Pure</div></div>
+      <div class="marca-card"><div class="marca-nome">Milano Vizzano</div></div>
+      <div class="marca-card"><div class="marca-nome">Reserva</div></div>
+      <div class="marca-card"><div class="marca-nome">Kipling</div></div>
+      <div class="marca-card"><div class="marca-nome">Caili</div></div>
+      <div class="marca-card"><div class="marca-nome">Tommy Hilfiger</div></div>
+      <div class="marca-card"><div class="marca-nome">Seventh Street</div></div>
+      <div class="marca-card"><div class="marca-nome">Pierre Cardin</div></div>
+    </div>
+  </div>
+
+  <div class="marcas-painel" id="painel-relogios">
+    <div class="painel-header">
+      <div class="painel-titulo">Relógios</div>
+      <button class="painel-close" type="button" onclick="fecharPainel('relogios')" aria-label="Fechar Relógios">×</button>
+    </div>
+    <div class="marcas-grid">
+      <div class="marca-card"><div class="marca-nome">Orient</div></div>
+      <div class="marca-card"><div class="marca-nome">Lince</div></div>
+    </div>
+  </div>
+
+  <div class="marcas-painel" id="painel-joias">
+    <div class="painel-header">
+      <div class="painel-titulo">Joias em Ouro 18k</div>
+      <button class="painel-close" type="button" onclick="fecharPainel('joias')" aria-label="Fechar Joias">×</button>
+    </div>
+    <div class="marcas-grid">
+      <div class="marca-card"><div class="marca-nome">Correntes</div></div>
+      <div class="marca-card"><div class="marca-nome">Anéis</div></div>
+      <div class="marca-card"><div class="marca-nome">Pulseiras</div></div>
+      <div class="marca-card"><div class="marca-nome">Alianças</div></div>
+      <div class="marca-card"><div class="marca-nome">Brincos</div></div>
+      <div class="marca-card"><div class="marca-nome">Anéis de Formatura</div></div>
+    </div>
+    <span class="fabricacao-badge">Fazemos fabricação própria</span>
+  </div>
+</section>
+
+<!-- Diferenciais: o porquê de comprar na JoiÓtica, em quatro cartões. -->
+<section class="section" id="diferenciais">
+  <div class="diferenciais-layout">
+    <div>
+      <p class="section-tag">Por que escolher a JoiÓtica</p>
+      <h2 class="section-title">Mais do que uma<br><em>loja</em>, uma experiência</h2>
+      <p class="section-desc">Há anos unindo beleza, qualidade e atendimento personalizado. Dos seus óculos à sua joia, cada detalhe é tratado com cuidado.</p>
+    </div>
+    <div class="dif-cards">
+      <div class="dif-card">
+        <h3>Marcas</h3>
+        <p>Ray-Ban, Carrera, Orient e muito mais. Só o melhor do mercado nacional e internacional.</p>
+      </div>
+      <div class="dif-card">
+        <h3>Joias Próprias</h3>
+        <p>Fabricação própria de joias para garantir exclusividade e qualidade superior.</p>
+      </div>
+      <div class="dif-card">
+        <h3>Joias em Ouro 18k</h3>
+        <p>Seu momento especial merece uma joia única.</p>
+      </div>
+      <div class="dif-card">
+        <h3>Atendimento Diferencial</h3>
+        <p>Você merece atenção total. Nossa equipe cuida de cada detalhe da sua escolha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chamada final: o objetivo da página inteira é levar a pessoa até esse botão do WhatsApp. -->
+<section class="cta-section" id="contato">
+  <h2>Fale com a gente pelo <em class="cta-destaque">WhatsApp</em></h2>
+  <p>Tire dúvidas, peça orçamentos e conheça nossas novidades diretamente pelo WhatsApp.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/553432611188" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- Rodapé -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <img src="assets/images/logo-joiotica-png.png" alt="JoiÓtica">
+      <p>Sua loja completa de óculos, relógios e joias com fabricação própria. Qualidade e estilo em um só lugar.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Produtos</h3>
+      <ul>
+        <li>Óculos Solar</li>
+        <li>Óculos de Grau</li>
+        <li>Relógios</li>
+        <li>Joias & Alianças</li>
+        <li>Anéis de Formatura</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <ul>
+        <!-- O endereço abre no Google Maps, já com a busca pronta. -->
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Rua+22,+775,+Ituiutaba+-+MG" target="_blank" rel="noopener noreferrer">📍 Nossa Loja</a>
+          <span class="footer-info">Rua 22 esq. com Av. 15, nº 775</span>
+        </li>
+        <li>
+          <a href="https://wa.me/553432611188" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+          <span class="footer-info">34-3261-1188</span>
+        </li>
+        <!-- No celular, tocar no telefone já abre a discagem. -->
+        <li>
+          <a href="tel:+553432611188">📞 Telefone</a>
+          <span class="footer-info">34-3261-1188</span>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/joioticaituiutaba" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+          <span class="footer-info">@joioticaituiutaba</span>
+        </li>
+        <li>
+          🕒 Horários
+          <span class="footer-info">Segunda a sexta: 8h às 18h</span>
+          <span class="footer-info">Sábado: 8h às 18h</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 JoiÓtica – Joalheria e Ótica. Todos os direitos reservados.</p>
+    <p>Desenvolvido por DiegoGobbisDesenvolvedor</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
